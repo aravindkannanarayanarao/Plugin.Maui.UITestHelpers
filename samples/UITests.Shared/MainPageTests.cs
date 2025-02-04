@@ -13,7 +13,8 @@ public class MainPageTests : BaseTest
     [Test]
 	public void AppLaunches()
 	{
-		App.Screenshot($"{nameof(AppLaunches)}.png");
+		App.Tap("CounterBtn");
+		VerifyScreenshot();
 	}
 
 	[Test]

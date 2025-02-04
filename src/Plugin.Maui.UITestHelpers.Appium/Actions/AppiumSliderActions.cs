@@ -79,7 +79,7 @@ namespace Plugin.Maui.UITestHelpers.Appium
 
 			int moveToX = (int)((x + size.Width) * value / maximum);
 
-			var touchDevice = new OpenQA.Selenium.Appium.Interactions.PointerInputDevice(PointerKind.Touch);
+			OpenQA.Selenium.Appium.Interactions.PointerInputDevice touchDevice = new OpenQA.Selenium.Appium.Interactions.PointerInputDevice(PointerKind.Touch);
 			var touchSequence = new ActionSequence(touchDevice, 0);
 			touchSequence.AddAction(touchDevice.CreatePointerMove(CoordinateOrigin.Viewport, x, y, TimeSpan.Zero));
 			touchSequence.AddAction(touchDevice.CreatePointerDown(PointerButton.TouchContact));

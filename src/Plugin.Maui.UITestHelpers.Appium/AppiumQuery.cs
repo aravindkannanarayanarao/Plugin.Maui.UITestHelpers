@@ -11,11 +11,11 @@ namespace Plugin.Maui.UITestHelpers.Appium
 		const string IdToken = "id";
 		const string NameToken = "name";
 		const string AccessibilityToken = "accessibilityid";
+		const string XPathToken = "xpath";
 		const string QuerySeparatorToken = "&";
 		const string IdQuery = IdToken + "={0}";
 		const string NameQuery = NameToken + "={0}";
 		const string AccessibilityQuery = AccessibilityToken + "={0}";
-		const string XPathToken = "xpath";
 		const string ClassQuery = ClassToken + "={0}";
 		const string XPathQuery = XPathToken + "={0}";
 		readonly string _queryStr;
@@ -65,11 +65,6 @@ namespace Plugin.Maui.UITestHelpers.Appium
 			return new AppiumQuery(string.Format(NameQuery, nameQuery));
 		}
 
-		public static AppiumQuery ByXPath(string xpath)
-		{
-			return new AppiumQuery(string.Format(XPathQuery, Uri.EscapeDataString(xpath)));
-		}
-
 		public static AppiumQuery ByAccessibilityId(string id)
 		{
 			return new AppiumQuery(string.Format(AccessibilityQuery, id));
@@ -78,6 +73,11 @@ namespace Plugin.Maui.UITestHelpers.Appium
 		public static AppiumQuery ByClass(string classQuery)
 		{
 			return new AppiumQuery(string.Format(ClassQuery, classQuery));
+		}
+
+		public static AppiumQuery ByXPath(string xpath)
+		{
+			return new AppiumQuery(string.Format(XPathQuery, Uri.EscapeDataString(xpath)));
 		}
 
 #nullable disable

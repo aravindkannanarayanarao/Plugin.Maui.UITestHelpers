@@ -1,3 +1,4 @@
+using System.Xml.Linq;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Appium;
 using OpenQA.Selenium.Appium.Enums;
@@ -17,11 +18,12 @@ namespace Plugin.Maui.UITestHelpers.Appium
 			_config = config ?? throw new ArgumentNullException(nameof(config));
 
 			_commandExecutor = new AppiumCommandExecutor();
-			_commandExecutor.AddCommandGroup(new AppiumDeviceActions(this));
 			_commandExecutor.AddCommandGroup(new AppiumMouseActions(this));
 			_commandExecutor.AddCommandGroup(new AppiumTouchActions(this));
 			_commandExecutor.AddCommandGroup(new AppiumTextActions());
 			_commandExecutor.AddCommandGroup(new AppiumGeneralActions());
+			_commandExecutor.AddCommandGroup(new AppiumClipboardActions(this));
+			_commandExecutor.AddCommandGroup(new AppiumDeviceActions(this));
 			_commandExecutor.AddCommandGroup(new AppiumVirtualKeyboardActions(this));
 			_commandExecutor.AddCommandGroup(new AppiumPinchToZoomActions(this));
 			_commandExecutor.AddCommandGroup(new AppiumSliderActions(this));
@@ -87,18 +89,25 @@ namespace Plugin.Maui.UITestHelpers.Appium
 		}
 
 #nullable disable
-        public virtual IUIElement FindElementByText(string text)
-        {
-            return AppiumQuery.ByXPath("//*[@text='" + text + "']").FindElement(this);
-        }
+		public virtual IUIElement FindElementByText(string text)
+		{
+			// Android (text), iOS (label), Windows (Name)
+			return AppiumQuery.ByXPath("//*[@text='" + text + "' or @label='" + text + "' or @Name='" + text + "']").FindElement(this);
+		}
 #nullable enable
 
-        public virtual IReadOnlyCollection<IUIElement> FindElements(string id)
+		public virtual IReadOnlyCollection<IUIElement> FindElements(string id)
 		{
 			return Query.ById(id);
 		}
 
-        public virtual IReadOnlyCollection<IUIElement> FindElements(IQuery query)
+		public virtual IReadOnlyCollection<IUIElement> FindElementsByText(string text)
+		{
+      // Android (text), iOS (label), Windows (Name)
+			return AppiumQuery.ByXPath("//*[@text='" + text + "' or @label='" + text + "' or @Name='" + text + "']").FindElements(this);
+		}
+
+		public virtual IReadOnlyCollection<IUIElement> FindElements(IQuery query)
 		{
 			AppiumQuery? appiumQuery = query as AppiumQuery;
 			if (appiumQuery is not null)
@@ -111,12 +120,7 @@ namespace Plugin.Maui.UITestHelpers.Appium
 			return q.FindElements(this);
 		}
 
-        public virtual IReadOnlyCollection<IUIElement> FindElementsByText(string text)
-        {
-            return AppiumQuery.ByXPath("//*[@text='" + text + "']").FindElements(this);
-        }
-
-        protected static void SetGeneralAppiumOptions(IConfig config, AppiumOptions appiumOptions)
+		protected static void SetGeneralAppiumOptions(IConfig config, AppiumOptions appiumOptions)
 		{
 			appiumOptions.AddAdditionalAppiumOption("reportDirectory", config.GetProperty<string>("ReportDirectory"));
 			appiumOptions.AddAdditionalAppiumOption("reportFormat", config.GetProperty<string>("ReportFormat"));

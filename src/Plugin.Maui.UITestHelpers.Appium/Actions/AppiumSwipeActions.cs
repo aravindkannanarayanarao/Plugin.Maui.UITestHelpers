@@ -92,7 +92,7 @@ namespace Plugin.Maui.UITestHelpers.Appium
 			int endX = (int)(position.X + (size.Width * swipePercentage));
 			int endY = startY;
 
-			var touchDevice = new OpenQA.Selenium.Appium.Interactions.PointerInputDevice(PointerKind.Touch);
+			OpenQA.Selenium.Appium.Interactions.PointerInputDevice touchDevice = new OpenQA.Selenium.Appium.Interactions.PointerInputDevice(PointerKind.Touch);
 			var swipeSequence = new ActionSequence(touchDevice, 0);
 			swipeSequence.AddAction(touchDevice.CreatePointerMove(CoordinateOrigin.Viewport, startX, startY, TimeSpan.Zero));
 			swipeSequence.AddAction(touchDevice.CreatePointerDown(PointerButton.TouchContact));
@@ -112,7 +112,7 @@ namespace Plugin.Maui.UITestHelpers.Appium
 			int endX = (int)(position.X + (size.Width * 0.05));
 			int endY = startY;
 
-			var touchDevice = new OpenQA.Selenium.Appium.Interactions.PointerInputDevice(PointerKind.Touch);
+			OpenQA.Selenium.Appium.Interactions.PointerInputDevice touchDevice = new OpenQA.Selenium.Appium.Interactions.PointerInputDevice(PointerKind.Touch);
 			var swipeSequence = new ActionSequence(touchDevice, 0);
 			swipeSequence.AddAction(touchDevice.CreatePointerMove(CoordinateOrigin.Viewport, startX, startY, TimeSpan.Zero));
 			swipeSequence.AddAction(touchDevice.CreatePointerDown(PointerButton.TouchContact));

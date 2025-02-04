@@ -15,6 +15,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UITests.macOS", "UITests.ma
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UITests.Windows", "UITests.Windows\UITests.Windows.csproj", "{1A0A722B-2D19-42C6-A306-1417A283B244}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.Maui.UITestHelpers.Appium", "..\src\Plugin.Maui.UITestHelpers.Appium\Plugin.Maui.UITestHelpers.Appium.csproj", "{A631A543-70AD-4137-A04D-EBE8FF55DC41}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.Maui.UITestHelpers.Core", "..\src\Plugin.Maui.UITestHelpers.Core\Plugin.Maui.UITestHelpers.Core.csproj", "{CB831C19-D94F-44A8-BF3D-DE15EFEE99CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.Maui.UITestHelpers.NUnit", "..\src\Plugin.Maui.UITestHelpers.NUnit\Plugin.Maui.UITestHelpers.NUnit.csproj", "{CB3AC273-5BFB-4892-B235-F8DA01269D83}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleforAppium", "SampleforAppium\SampleforAppium.csproj", "{7EECF68A-A619-40D8-BFFC-41115A3C1C58}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample", "Sample\Sample.csproj", "{CD0F8DBF-1E3E-4815-90D7-E4F9198BCC08}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +57,29 @@ Global
 		{1A0A722B-2D19-42C6-A306-1417A283B244}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A0A722B-2D19-42C6-A306-1417A283B244}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A0A722B-2D19-42C6-A306-1417A283B244}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A631A543-70AD-4137-A04D-EBE8FF55DC41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A631A543-70AD-4137-A04D-EBE8FF55DC41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A631A543-70AD-4137-A04D-EBE8FF55DC41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A631A543-70AD-4137-A04D-EBE8FF55DC41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB831C19-D94F-44A8-BF3D-DE15EFEE99CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB831C19-D94F-44A8-BF3D-DE15EFEE99CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB831C19-D94F-44A8-BF3D-DE15EFEE99CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB831C19-D94F-44A8-BF3D-DE15EFEE99CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB3AC273-5BFB-4892-B235-F8DA01269D83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB3AC273-5BFB-4892-B235-F8DA01269D83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB3AC273-5BFB-4892-B235-F8DA01269D83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB3AC273-5BFB-4892-B235-F8DA01269D83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EECF68A-A619-40D8-BFFC-41115A3C1C58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EECF68A-A619-40D8-BFFC-41115A3C1C58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EECF68A-A619-40D8-BFFC-41115A3C1C58}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{7EECF68A-A619-40D8-BFFC-41115A3C1C58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EECF68A-A619-40D8-BFFC-41115A3C1C58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD0F8DBF-1E3E-4815-90D7-E4F9198BCC08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD0F8DBF-1E3E-4815-90D7-E4F9198BCC08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD0F8DBF-1E3E-4815-90D7-E4F9198BCC08}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{CD0F8DBF-1E3E-4815-90D7-E4F9198BCC08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD0F8DBF-1E3E-4815-90D7-E4F9198BCC08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD0F8DBF-1E3E-4815-90D7-E4F9198BCC08}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

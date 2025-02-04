@@ -10,6 +10,8 @@ namespace Plugin.Maui.UITestHelpers.Appium
 		public AppiumWindowsApp(Uri remoteAddress, IConfig config)
 			: base(new WindowsDriver(remoteAddress, GetOptions(config)), config)
 		{
+			_commandExecutor.AddCommandGroup(new AppiumWindowsStepperActions(this));
+			_commandExecutor.AddCommandGroup(new AppiumWindowsThemeChangeAction());
 		}
 
 		public override ApplicationState AppState
@@ -24,6 +26,10 @@ namespace Plugin.Maui.UITestHelpers.Appium
 				catch (NoSuchWindowException)
 				{
 					return ApplicationState.NotRunning;
+				}
+				catch (Exception)
+				{
+					return ApplicationState.Unknown;
 				}
 			}
 		}
@@ -44,10 +50,15 @@ namespace Plugin.Maui.UITestHelpers.Appium
 		{
 			config.SetProperty("PlatformName", "Windows");
 			config.SetProperty("AutomationName", "Windows");
+            var appName = config.GetProperty<string>("AppName");
+           // config.SetProperty("App", appName);
 			config.SetProperty("DeviceName", "WindowsPC");
+			
 
 			var options = new AppiumOptions();
+			options.App=appName;
 			SetGeneralAppiumOptions(config, options);
+
 			return options;
 		}
 	}
